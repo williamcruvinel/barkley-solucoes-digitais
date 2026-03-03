@@ -39,12 +39,13 @@
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
   box-shadow: 0 10px 30px rgba(11, 15, 42, 0.08);
+  display: inline-block;
 }
 
 .button:hover {
-  transform: translateY(-3px);
+  transform: scale(1.1);
   box-shadow: 0 20px 40px rgba(15, 27, 179, 0.15);
 }
 
