@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import HeroSection from '@/components/Hero/HeroSection';
 import ResultsSection from '@/components/Results/ResultsSection';
@@ -13,6 +14,7 @@ export default function Home() {
       <ServicesSection />
       <ResultsSection />
       <TestimonialsSection />
+      <Footer />
     </>
   );
 }

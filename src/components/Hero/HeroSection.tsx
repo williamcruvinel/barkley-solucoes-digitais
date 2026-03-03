@@ -16,7 +16,7 @@ function HeroSection() {
             crescimento da sua marca.
           </p>
 
-          <button className={styles.button}>Fale Conosco</button>
+          <a href='#contato' className={styles.button}>Fale Conosco</a>
         </div>
 
         <div className={styles.imageWrapper}>
