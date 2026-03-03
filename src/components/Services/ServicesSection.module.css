@@ -1,0 +1,293 @@
+.services {
+  padding: 5rem 1rem;
+  background: var(--bg-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: var(--primary-gradient);
+  opacity: 0.03;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.services::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: var(--secundary-gradient);
+  opacity: 0.03;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Linha decorativa abaixo do título */
+.services h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+/* Grid dos cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: var(--container);
+  margin: 3rem auto 0;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsividade do grid */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 800px;
+  }
+  
+  .services h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 1rem;
+  }
+  
+  .services h2 {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .services h2 {
+    font-size: 1.75rem;
+  }
+  
+  .services h2::after {
+    width: 60px;
+    height: 3px;
+  }
+}
+
+/* Animação de entrada para os cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid > * {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* Delay progressivo para cada card */
+.grid > *:nth-child(1) { animation-delay: 0.1s; }
+.grid > *:nth-child(2) { animation-delay: 0.2s; }
+.grid > *:nth-child(3) { animation-delay: 0.3s; }
+.grid > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* Opção de tema escuro */
+.services.dark {
+  background: var(--bg-dark);
+}
+
+.services.dark h2 {
+  color: var(--text-light);
+}
+
+.services.dark::before,
+.services.dark::after {
+  opacity: 0.05;
+}
+
+/* Opção com padding diferente */
+.services.compact {
+  padding: 3rem 1rem;
+}
+
+.services.wide {
+  padding: 6rem 1rem;
+}
+
+/* Container alternativo */
+.services .container {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Se quiser adicionar um subtítulo opcional */
+.services .subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+  line-height: 1.6;
+}
+
+/* Efeito de hover no grid */
+.grid:hover > *:not(:hover) {
+  opacity: 0.7;
+  transform: scale(0.98);
+  transition: all 0.3s ease;
+}
+
+/* Ajuste para mobile do efeito hover */
+@media (max-width: 768px) {
+  .grid:hover > *:not(:hover) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Se quiser adicionar um CTA no final da seção */
+.services .cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.services .ctaButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(15, 27, 179, 0.2);
+}
+
+.services .ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(15, 27, 179, 0.3);
+}
+
+/* Estados de carregamento */
+.services.loading {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services.loading::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Scroll reveal animation (opcional) */
+@media (prefers-reduced-motion: no-preference) {
+  .services.reveal .grid > * {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-play-state: paused;
+  }
+  
+  .services.reveal.visible .grid > * {
+    animation-play-state: running;
+  }
+}
+
+/* Layout alternativo com título à esquerda */
+.services.alternative {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: start;
+  gap: 3rem;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+
+.services.alternative h2 {
+  text-align: left;
+  left: 0;
+  transform: none;
+  margin: 0;
+}
+
+.services.alternative h2::after {
+  left: 0;
+  transform: none;
+}
+
+.services.alternative .grid {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .services.alternative {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .services.alternative h2 {
+    text-align: center;
+  }
+  
+  .services.alternative h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

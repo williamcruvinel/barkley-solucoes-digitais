@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './Header.module.css';
 import Image from 'next/image';
 
@@ -16,16 +15,16 @@ export default function Header() {
 
         <ul className={styles.navList}>
           <li className={styles.linkItem}>
-            <Link href="#servicos">Serviços</Link>
+            <a href="#servicos">Serviços</a>
           </li>
           <li className={styles.linkItem}>
-            <Link href="#resultados">Resultados</Link>
+            <a href="#resultados">Resultados</a>
           </li>
           <li className={styles.linkItem}>
-            <Link href="#clientes">Clientes</Link>
+            <a href="#clientes">Clientes</a>
           </li>
           <li className={styles.cta}>
-            <Link href="#contato">Fale Conosco</Link>
+            <a href="#contato">Fale Conosco</a>
           </li>
         </ul>
       </nav>

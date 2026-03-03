@@ -40,12 +40,12 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(11, 15, 42, 0.08);
 }
 
 .button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(15, 27, 179, 0.15);
 }
 
 .imageWrapper {
@@ -99,10 +99,10 @@
     height: 300px;
   }
 
-   .imageOne {
+  .imageOne {
     display: none;
   }
-  
+
   .imageTwo {
     display: block;
   }
@@ -122,8 +122,6 @@
   }
 
   .imageTwo {
-  
-  object-position: center;
-}
-
+    object-position: center;
+  }
 }

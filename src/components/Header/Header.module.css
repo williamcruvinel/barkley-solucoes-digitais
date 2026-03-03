@@ -54,10 +54,11 @@
   font-weight: bold;
   border-radius: 50px;
   transition: transform 0.5s ease;
-  box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(11, 15, 42, 0.08);
 }
 
 .cta:hover {
   transform: scale(1.05);
   background: var(--secundary-gradient);
+  box-shadow: 0 20px 40px rgba(15, 27, 179, 0.15);
 }
